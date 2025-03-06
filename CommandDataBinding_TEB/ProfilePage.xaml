@@ -6,8 +6,11 @@
     <ContentPage.Content>
         <VerticalStackLayout Padding="30,0" Spacing="25">
             <Image Source="{Binding ImageUrl}" HeightRequest="200" Aspect="AspectFit" />
-            <Label Text="{Binding Name}" FontSize="30" />
-            <Label Text="{Binding Description}" FontSize="20" />
+            <Label Text="{Binding Name, StringFormat='Imię i nazwisko: {0}'}" FontSize="30"/>
+            <Label Text="{Binding Description, StringFormat='Opis: {0}'}" FontSize="18" />
+            <Label Text="{Binding Age, StringFormat='Wiek: {0}'}" FontSize="20" />
+            <Label Text="{Binding Gender, StringFormat='Płeć: {0}'}" FontSize="20"/>
+            <Label Text="{Binding Hobby, StringFormat='Hobby: {0}' }" FontSize="20"/>
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
