@@ -7,23 +7,33 @@ namespace CommandDataBinding_TEB
     {
         public ObservableCollection<Person> People { get; set; }
         public ICommand ShowAlertCommand { get; }
+        public ICommand NavigateToProfileCommand { get; }
 
         public MainViewModel()
         {
             // Inicjalizacja listy osób
             People = new ObservableCollection<Person>
-            {
-                new Person { Name = "Jan Kowalski" },
-                new Person { Name = "Anna Nowak" },
-                new Person { Name = "Piotr Wiœniewski" }
-            };
+                {
+                    new Person { Name = "Jan Kowalski", ImageUrl = "person1.png", Description = "Opis Jana Kowalskiego" },
+                    new Person { Name = "Anna Nowak", ImageUrl = "person3.webp", Description = "Opis Anny Nowak" },
+                    new Person { Name = "Piotr Wiœniewski", ImageUrl = "person2.png", Description = "Opis Piotra Wiœniewskiego" }
+                };
 
             // Inicjalizacja komendy
             ShowAlertCommand = new Command<Person>(async (person) =>
             {
                 if (person != null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Wybrana osoba", $"Witaj, {person.Name}", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Informacja", $"Wybrano: {person.Name}", "OK");
+                }
+            });
+
+            // Inicjalizacja komendy nawigacji
+            NavigateToProfileCommand = new Command<Person>(async (person) =>
+            {
+                if (person != null)
+                {
+                    await Application.Current.MainPage.Navigation.PushAsync(new ProfilePage(person));
                 }
             });
         }
@@ -32,5 +42,7 @@ namespace CommandDataBinding_TEB
     public class Person
     {
         public string Name { get; set; }
+        public string ImageUrl { get; set; }
+        public string Description { get; set; }
     }
 }

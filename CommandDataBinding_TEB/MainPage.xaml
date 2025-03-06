@@ -19,10 +19,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding Name}" FontSize="20">
+                            <Label Text="{Binding Name}" FontSize="25">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer
-                                        Command="{Binding Source={x:Reference MainPageRoot}, Path=BindingContext.ShowAlertCommand}"
+                                        Command="{Binding Source={x:Reference MainPageRoot}, Path=BindingContext.NavigateToProfileCommand}"
                                         CommandParameter="{Binding .}" />
                                 </Label.GestureRecognizers>
                             </Label>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommandDataBinding_TEB.ProfilePage">
+
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Image Source="{Binding ImageUrl}" HeightRequest="200" Aspect="AspectFit" />
+            <Label Text="{Binding Name}" FontSize="30" />
+            <Label Text="{Binding Description}" FontSize="20" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
